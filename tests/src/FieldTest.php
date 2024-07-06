@@ -16,8 +16,6 @@ it('can render a US format phone number', function () {
 
     $formattedPhone = PhoneHelper::formatPhoneNumber(
         number: $user->phone,
-        format: \Brick\PhoneNumber\PhoneNumberFormat::NATIONAL,
-        region: 'US'
     );
 
     livewire(TestForm::class, [
@@ -36,8 +34,6 @@ it('can render a US format phone number with correct mask', function () {
 
     $formattedPhone = PhoneHelper::formatPhoneNumber(
         number: $user->phone,
-        format: \Brick\PhoneNumber\PhoneNumberFormat::NATIONAL,
-        region: 'US'
     );
 
     livewire(TestFormWithMask::class, [
@@ -56,14 +52,10 @@ it('can save a US format phone number to e164 format', function () {
 
     $formattedPhone = PhoneHelper::formatPhoneNumber(
         number: $user->phone,
-        format: \Brick\PhoneNumber\PhoneNumberFormat::NATIONAL,
-        region: 'US'
     );
 
     $newFormattedPhone = PhoneHelper::formatPhoneNumber(
         number: '2345551212',
-        format: \Brick\PhoneNumber\PhoneNumberFormat::NATIONAL,
-        region: 'US'
     );
 
     livewire(TestFormWithMask::class, [

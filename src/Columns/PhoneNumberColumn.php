@@ -91,7 +91,7 @@ class PhoneNumberColumn extends TextColumn
         return $this;
     }
 
-    public function getDial(): string
+    public function getDial(): string|bool
     {
         return $this->evaluate($this->dial);
     }

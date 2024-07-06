@@ -36,10 +36,9 @@
         "friendsofphp/php-cs-fixer": "^3.59",
         "laravel/pint": "^1.16",
         "nunomaduro/collision": "^7.9",
-        "orchestra/testbench": "^8.0",
-        "pestphp/pest": "^2.0",
+        "pestphp/pest": "^2.34",
         "pestphp/pest-plugin-arch": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.3",
         "pestphp/pest-plugin-livewire": "^2.1"
     },
     "autoload": {
