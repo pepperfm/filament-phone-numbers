@@ -83,7 +83,6 @@ class PhoneNumberColumn extends TextColumn
 
         $this->url(fn(?string $state) => PhoneHelper::formatPhoneNumber(
             number: $state,
-            strict: false,
             format: PhoneFormat::RFC3966->value,
             region: $this->getRegion()
         ));
@@ -123,7 +122,7 @@ class PhoneNumberColumn extends TextColumn
                     }
 
                     if (filled($numbers)) {
-                        return $query->where('phone', 'like', '%' . $numbers . '%');
+                        return $query->where($this->name, 'like', '%' . $numbers . '%');
                     }
                     return $query;
                 },

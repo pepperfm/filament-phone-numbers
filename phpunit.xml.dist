@@ -36,6 +36,6 @@
         </include>
     </source>
     <php>
-        <env name="APP_KEY" value="base64:toKBNU3swHu/WZ6DCjtxqOfVpP+5EBvXh3N0PmluEd0="/>
+        <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
     </php>
 </phpunit>

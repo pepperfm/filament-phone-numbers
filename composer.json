@@ -36,6 +36,7 @@
         "friendsofphp/php-cs-fixer": "^3.59",
         "laravel/pint": "^1.16",
         "nunomaduro/collision": "^7.9",
+        "orchestra/testbench": "^8.23",
         "pestphp/pest": "^2.34",
         "pestphp/pest-plugin-arch": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.3",
@@ -50,14 +51,33 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "PepperFM\\FilamentPhoneNumbers\\Tests\\": "tests/"
+            "PepperFM\\FilamentPhoneNumbers\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "scripts": {
-        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare",
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ],
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint",
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "lint": [
+            "@php vendor/bin/pint",
+            "@php vendor/bin/phpstan analyse"
+        ]
     },
     "config": {
         "sort-packages": true,
