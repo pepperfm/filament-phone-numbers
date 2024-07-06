@@ -1,8 +1,10 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Tests\Database\Factories;
+declare(strict_types=1);
 
-use Cheesegrits\FilamentPhoneNumbers\Tests\Models\User;
+namespace PepperFM\FilamentPhoneNumbers\Tests\Database\Factories;
+
+use PepperFM\FilamentPhoneNumbers\Tests\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 

@@ -1,6 +1,8 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Models;
+declare(strict_types=1);
+
+namespace PepperFM\FilamentPhoneNumbers\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
@@ -40,16 +42,14 @@ class Country extends Model
 
     public function getRows(): array
     {
-        $rows = array_map(
-            function (array $row) {
+        return array_map(
+            static function (array $row) {
                 $row['mask'] = json_encode(Arr::wrap($row['mask']));
 
                 return $row;
             },
             File::json(__DIR__ . '/countries.json')
         );
-
-        return $rows;
     }
 
     protected function sushiShouldCache(): bool

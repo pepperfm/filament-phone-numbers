@@ -1,22 +1,23 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Infolists\Components;
+declare(strict_types=1);
+
+namespace PepperFM\FilamentPhoneNumbers\Infolists\Components;
 
 use Brick\PhoneNumber\PhoneNumberFormat;
-use Cheesegrits\FilamentPhoneNumbers\Enums\PhoneFormat;
-use Cheesegrits\FilamentPhoneNumbers\Support\PhoneHelper;
-use Closure;
+use PepperFM\FilamentPhoneNumbers\Enums\PhoneFormat;
+use PepperFM\FilamentPhoneNumbers\Support\PhoneHelper;
 use Filament\Infolists\Components;
 
 class PhoneNumberEntry extends Components\TextEntry
 {
-    protected int | Closure | null $displayFormat = null;
+    protected null|\Closure|int $displayFormat = null;
 
-    protected string | Closure | null $region = null;
+    protected null|\Closure|string $region = null;
 
-    protected bool | Closure $dial = false;
+    protected bool|\Closure $dial = false;
 
-    public function displayFormat(int | PhoneFormat $format = PhoneNumberFormat::NATIONAL): static
+    public function displayFormat(int|PhoneFormat $format = PhoneNumberFormat::NATIONAL): static
     {
         $this->displayFormat = $format instanceof PhoneFormat ? $format->value : $format;
 
@@ -46,7 +47,7 @@ class PhoneNumberEntry extends Components\TextEntry
     {
         $this->dial = $dial;
 
-        $this->url(fn (?string $state) => PhoneHelper::formatPhoneNumber(
+        $this->url(fn(?string $state) => PhoneHelper::formatPhoneNumber(
             number: $state,
             strict: false,
             format: PhoneFormat::RFC3966->value,
@@ -63,13 +64,11 @@ class PhoneNumberEntry extends Components\TextEntry
 
     public function formatState(mixed $state): mixed
     {
-        $state = PhoneHelper::formatPhoneNumber(
+        return PhoneHelper::formatPhoneNumber(
             number: $state,
             strict: false,
             format: $this->getDisplayFormat(),
             region: $this->getRegion()
         );
-
-        return $state;
     }
 }

@@ -1,15 +1,16 @@
 {
-    "name": "cheesegrits/filament-phone-numbers",
+    "name": "pepperfm/filament-phone-numbers",
     "description": "A Filament PHP plugin for normalizing phone numbers",
     "keywords": [
         "cheesegrits",
+        "pepperfm",
         "laravel",
         "filament-phone-numbers"
     ],
-    "homepage": "https://github.com/cheesegrits/filament-phone-numbers",
+    "homepage": "https://github.com/pepperfm/filament-phone-numbers",
     "support": {
-        "issues": "https://github.com/cheesegrits/filament-phone-numbers/issues",
-        "source": "https://github.com/cheesegrits/filament-phone-numbers"
+        "issues": "https://github.com/pepperfm/filament-phone-numbers/issues",
+        "source": "https://github.com/pepperfm/filament-phone-numbers"
     },
     "license": "MIT",
     "authors": [
@@ -17,6 +18,10 @@
             "name": "Hugh Messenger",
             "email": "hugh.messenger@gmail.com",
             "role": "Developer"
+        },
+        {
+            "name": "Dmitry Gaponenko",
+            "email": "Damon3453@yandex.ru"
         }
     ],
     "require": {
@@ -24,11 +29,12 @@
         "brick/phonenumber": "^0.5.0",
         "calebporzio/sushi": "^2.4",
         "filament/filament": "^3.0",
-        "illuminate/contracts": "^10.0",
+        "illuminate/contracts": "^10.0|^11.0",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.0",
+        "friendsofphp/php-cs-fixer": "^3.59",
+        "laravel/pint": "^1.16",
         "nunomaduro/collision": "^7.9",
         "orchestra/testbench": "^8.0",
         "pestphp/pest": "^2.0",
@@ -38,14 +44,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Cheesegrits\\FilamentPhoneNumbers\\": "src/",
-            "Cheesegrits\\FilamentPhoneNumbers\\Tests\\": "tests/src",
-            "Cheesegrits\\FilamentPhoneNumbers\\Tests\\Database\\Factories\\": "tests/database/factories"
+            "PepperFM\\FilamentPhoneNumbers\\": "src/",
+            "PepperFM\\FilamentPhoneNumbers\\Tests\\": "tests/src",
+            "PepperFM\\FilamentPhoneNumbers\\Tests\\Database\\Factories\\": "tests/database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Cheesegrits\\FilamentPhoneNumbers\\Tests\\": "tests/"
+            "PepperFM\\FilamentPhoneNumbers\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -64,13 +70,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Cheesegrits\\FilamentPhoneNumbers\\FilamentPhoneNumbersServiceProvider"
+                "PepperFM\\FilamentPhoneNumbers\\FilamentPhoneNumbersServiceProvider"
             ],
             "aliases": {
-                "FilamentPhoneNumbers": "Cheesegrits\\FilamentPhoneNumbers\\Facades\\FilamentPhoneNumbers"
+                "FilamentPhoneNumbers": "PepperFM\\FilamentPhoneNumbers\\Facades\\FilamentPhoneNumbers"
             }
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

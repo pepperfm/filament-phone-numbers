@@ -1,9 +1,11 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers;
+declare(strict_types=1);
 
-use Cheesegrits\FilamentPhoneNumbers\Commands\FilamentPhoneNumbersCommand;
-use Cheesegrits\FilamentPhoneNumbers\Testing\TestsFilamentPhoneNumbers;
+namespace PepperFM\FilamentPhoneNumbers;
+
+use PepperFM\FilamentPhoneNumbers\Commands\FilamentPhoneNumbersCommand;
+use PepperFM\FilamentPhoneNumbers\Testing\TestsFilamentPhoneNumbers;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
@@ -31,17 +33,17 @@ class FilamentPhoneNumbersServiceProvider extends PackageServiceProvider
          */
         $package->name(static::$name)
             ->hasCommands($this->getCommands())
-            ->hasInstallCommand(function (InstallCommand $command) {
+            ->hasInstallCommand(static function (InstallCommand $command): void {
                 $command
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('cheesegrits/filament-phone-numbers');
+                    ->askToStarRepoOnGitHub('pepperfm/filament-phone-numbers');
             });
 
         $configFileName = $package->shortName();
 
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
+        if (file_exists($package->basePath("/../config/$configFileName.php"))) {
             $package->hasConfigFile();
         }
 
@@ -93,7 +95,7 @@ class FilamentPhoneNumbersServiceProvider extends PackageServiceProvider
 
     protected function getAssetPackageName(): ?string
     {
-        return 'cheesegrits/filament-phone-numbers';
+        return 'pepperfm/filament-phone-numbers';
     }
 
     /**

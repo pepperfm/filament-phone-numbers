@@ -1,6 +1,8 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Enums;
+declare(strict_types=1);
+
+namespace PepperFM\FilamentPhoneNumbers\Enums;
 
 use Brick\PhoneNumber\PhoneNumberFormat;
 use Filament\Support\Contracts\HasLabel;

@@ -1,10 +1,12 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Tests\src;
+declare(strict_types=1);
+
+namespace PepperFM\FilamentPhoneNumbers\Tests\src;
 
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
-use Cheesegrits\FilamentPhoneNumbers\FilamentPhoneNumbersServiceProvider;
+use PepperFM\FilamentPhoneNumbers\FilamentPhoneNumbersServiceProvider;
 use Filament\Actions\ActionsServiceProvider;
 use Filament\FilamentServiceProvider;
 use Filament\Forms\FormsServiceProvider;
@@ -27,7 +29,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Cheesegrits\\FilamentPhoneNumbers\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn(string $modelName) => 'PepperFM\\FilamentPhoneNumbers\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 

@@ -1,9 +1,9 @@
 # A Filament PHP plugin for normalizing phone numbers
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/cheesegrits/filament-phone-numbers.svg?style=flat-square)](https://packagist.org/packages/cheesegrits/filament-phone-numbers)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/cheesegrits/filament-phone-numbers/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/cheesegrits/filament-phone-numbers/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/cheesegrits/filament-phone-numbers/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/cheesegrits/filament-phone-numbers/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/cheesegrits/filament-phone-numbers.svg?style=flat-square)](https://packagist.org/packages/cheesegrits/filament-phone-numbers)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/pepperfm/filament-phone-numbers.svg?style=flat-square)](https://packagist.org/packages/pepperfm/filament-phone-numbers)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/pepperfm/filament-phone-numbers/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/pepperfm/filament-phone-numbers/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/pepperfm/filament-phone-numbers/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/pepperfm/filament-phone-numbers/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/pepperfm/filament-phone-numbers.svg?style=flat-square)](https://packagist.org/packages/pepperfm/filament-phone-numbers)
 
 
 
@@ -30,7 +30,7 @@ compatible version.
 You can install the package via composer:
 
 ```bash
-composer require cheesegrits/filament-phone-numbers
+composer require pepperfm/filament-phone-numbers
 ```
 
 You can publish the config file with:
@@ -75,7 +75,7 @@ FILAMENT_PHONE_NUMBERS_ICON - any valid Heroicons v2 icon name.
 The simplest usage of the PhoneNumber field is:
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 
 FilamentPhoneNumbers\Forms\Components\PhoneNumber::make('phone')
 ```
@@ -91,7 +91,7 @@ The full set of options is as follows.
 To override the display or database formats, use one of the available PhoneFormat enums:
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 
 FilamentPhoneNumbers\Forms\Components\PhoneNumber::make('phone')
     ->displayFormat(FilamentPhoneNumbers\Enums\PhoneFormat::INTERNATIONAL)
@@ -104,7 +104,7 @@ use the strict() method.
 Take care using this feature, as metadata may not be fully up-to-date.
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 
 FilamentPhoneNumbers\Forms\Components\PhoneNumber::make('phone')
     ->strict()
@@ -113,7 +113,7 @@ FilamentPhoneNumbers\Forms\Components\PhoneNumber::make('phone')
 To override the globally configured region, use the region() method with a valid [two letter (alpha-2) ISO country code](https://www.iso.org/obp/ui/#search).
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 
 FilamentPhoneNumbers\Forms\Components\PhoneNumber::make('phone')
     ->region('GB')
@@ -123,7 +123,7 @@ If the mask automatically applied by the field doesn't do what you want, you can
 standard Filament mask() method:
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 
 FilamentPhoneNumbers\Forms\Components\PhoneNumber::make('phone')
     ->mask('99 99-99-99-99')
@@ -134,7 +134,7 @@ FilamentPhoneNumbers\Forms\Components\PhoneNumber::make('phone')
 The basic usage of the PhoneNumberColumn is:
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 
 FilamentPhoneNumbers\Columns\PhoneNumberColumn::make('phone'),
 ```
@@ -145,7 +145,7 @@ You may override the format and region, and optionally specify the dial() method
 clickable 'tel' URI:
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 
 FilamentPhoneNumbers\Columns\PhoneNumberColumn::make('phone')
     ->displayFormat(FilamentPhoneNumbers\Enums\PhoneFormat::NATIONAL)
@@ -170,7 +170,7 @@ If you do not wish to use this behavior (for example if you are not using E164 f
 Also, if you specify your own $query in a searchable() method, this will bypass our modification.
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 use Illuminate\Database\Query\Builder;
 
 // uses modified search query described above
@@ -194,7 +194,7 @@ FilamentPhoneNumbers\Columns\PhoneNumberColumn::make('phone')
 The basic usage of the PhoneNumberEntry Infolist field is as follows:
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 
 FilamentPhoneNumbers\Infolists\Components\PhoneNumberEntry::make('phone'),
 ```
@@ -205,7 +205,7 @@ You may override the format and region, and optionally specify the dial() method
 clickable 'tel' URI:
 
 ```php
-use Cheesegrits\FilamentPhoneNumbers;
+use PepperFM\FilamentPhoneNumbers;
 
 FilamentPhoneNumbers\Infolists\Components\PhoneNumberEntry::make('phone')
     ->displayFormat(FilamentPhoneNumbers\Enums\PhoneFormat::INTERNATIONAL)
@@ -292,7 +292,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Hugh Messenger](https://github.com/cheesegrits)
+- [Hugh Messenger](https://github.com/pepperfm)
 - [All Contributors](../../contributors)
 
 This plugin also uses the [Brick\PhoneNumber](https://github.com/brick/phonenumber) package by Benjamin Morel, which itself

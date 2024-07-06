@@ -1,8 +1,10 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Tests\Fixtures;
+declare(strict_types=1);
 
-use Cheesegrits\FilamentPhoneNumbers\Tests\Models\User;
+namespace PepperFM\FilamentPhoneNumbers\Tests\Fixtures;
+
+use PepperFM\FilamentPhoneNumbers\Tests\Models\User;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;

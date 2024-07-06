@@ -1,16 +1,18 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Facades;
+declare(strict_types=1);
+
+namespace PepperFM\FilamentPhoneNumbers\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Cheesegrits\FilamentPhoneNumbers\FilamentPhoneNumbers
+ * @see \PepperFM\FilamentPhoneNumbers\FilamentPhoneNumbers
  */
 class FilamentPhoneNumbers extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Cheesegrits\FilamentPhoneNumbers\FilamentPhoneNumbers::class;
+        return \PepperFM\FilamentPhoneNumbers\FilamentPhoneNumbers::class;
     }
 }

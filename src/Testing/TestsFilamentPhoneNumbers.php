@@ -1,6 +1,8 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Testing;
+declare(strict_types=1);
+
+namespace PepperFM\FilamentPhoneNumbers\Testing;
 
 use Livewire\Features\SupportTesting\Testable;
 
@@ -9,5 +11,4 @@ use Livewire\Features\SupportTesting\Testable;
  */
 class TestsFilamentPhoneNumbers
 {
-    //
 }

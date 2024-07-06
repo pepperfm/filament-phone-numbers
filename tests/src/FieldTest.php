@@ -1,9 +1,11 @@
 <?php
 
-use Cheesegrits\FilamentPhoneNumbers\Forms\Components\PhoneNumber;
-use Cheesegrits\FilamentPhoneNumbers\Support\PhoneHelper;
-use Cheesegrits\FilamentPhoneNumbers\Tests\Fixtures\BaseForm;
-use Cheesegrits\FilamentPhoneNumbers\Tests\Models\User;
+declare(strict_types=1);
+
+use PepperFM\FilamentPhoneNumbers\Forms\Components\PhoneNumber;
+use PepperFM\FilamentPhoneNumbers\Support\PhoneHelper;
+use PepperFM\FilamentPhoneNumbers\Tests\Fixtures\BaseForm;
+use PepperFM\FilamentPhoneNumbers\Tests\Models\User;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 

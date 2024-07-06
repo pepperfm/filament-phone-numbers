@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 use Brick\PhoneNumber\PhoneNumberFormat;
-use Cheesegrits\FilamentPhoneNumbers\Support\PhoneHelper;
-use Cheesegrits\FilamentPhoneNumbers\Tests\Models\User;
+use PepperFM\FilamentPhoneNumbers\Support\PhoneHelper;
+use PepperFM\FilamentPhoneNumbers\Tests\Models\User;
 
 it('asks the right questions for the artisan normaalize command', function () {
     $this->artisan('filament-phone-numbers:normalize')
         ->expectsQuestion(
             'Model (e.g. `Location` or `Maps/Dealership`)',
-            'Cheesegrits/FilamentPhoneNumbers/Tests/Models/User'
+            'PepperFM/FilamentPhoneNumbers/Tests/Models/User'
         )
         ->expectsQuestion(
             'Phone attribute to normalize (eg. phone or phone_number)',
@@ -35,7 +37,7 @@ it('does not update the table if the commit flag is not given', function () {
     $this->artisan(
         'filament-phone-numbers:normalize',
         [
-            '--model' => 'Cheesegrits/FilamentPhoneNumbers/Tests/Models/User',
+            '--model' => 'PepperFM/FilamentPhoneNumbers/Tests/Models/User',
             '--field' => 'phone',
             '--target' => 'normalized_phone',
             '--format' => 'e164',
@@ -53,7 +55,7 @@ it('does updates the table to target field if the commit flag is given', functio
     $this->artisan(
         'filament-phone-numbers:normalize',
         [
-            '--model' => 'Cheesegrits/FilamentPhoneNumbers/Tests/Models/User',
+            '--model' => 'PepperFM/FilamentPhoneNumbers/Tests/Models/User',
             '--field' => 'phone',
             '--target' => 'normalized_phone',
             '--format' => 'e164',
@@ -74,7 +76,7 @@ it('does updates the table in-place if the commit flag is given', function () {
     $this->artisan(
         'filament-phone-numbers:normalize',
         [
-            '--model' => 'Cheesegrits/FilamentPhoneNumbers/Tests/Models/User',
+            '--model' => 'PepperFM/FilamentPhoneNumbers/Tests/Models/User',
             '--field' => 'phone',
             '--target' => '',
             '--format' => 'e164',
@@ -95,7 +97,7 @@ it('sets invalid numbers to null if the delete-invalid flag is set', function ()
     $this->artisan(
         'filament-phone-numbers:normalize',
         [
-            '--model' => 'Cheesegrits/FilamentPhoneNumbers/Tests/Models/User',
+            '--model' => 'PepperFM/FilamentPhoneNumbers/Tests/Models/User',
             '--field' => 'phone',
             '--target' => 'normalized_phone',
             '--format' => 'e164',

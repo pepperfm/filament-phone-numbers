@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 use Brick\PhoneNumber\PhoneNumberFormat;
-use Cheesegrits\FilamentPhoneNumbers\Columns\PhoneNumberColumn;
-use Cheesegrits\FilamentPhoneNumbers\Support\PhoneHelper;
-use Cheesegrits\FilamentPhoneNumbers\Tests\Fixtures\BaseTable;
-use Cheesegrits\FilamentPhoneNumbers\Tests\Models\User;
+use PepperFM\FilamentPhoneNumbers\Columns\PhoneNumberColumn;
+use PepperFM\FilamentPhoneNumbers\Support\PhoneHelper;
+use PepperFM\FilamentPhoneNumbers\Tests\Fixtures\BaseTable;
+use PepperFM\FilamentPhoneNumbers\Tests\Models\User;
 use Filament\Tables;
 
 use function Pest\Livewire\livewire;

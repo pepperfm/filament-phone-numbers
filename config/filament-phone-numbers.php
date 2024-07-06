@@ -1,6 +1,8 @@
 <?php
 
-// config for Cheesegrits/FilamentPhoneNumbers
+declare(strict_types=1);
+
+// config for PepperFM/FilamentPhoneNumbers
 use Brick\PhoneNumber\PhoneNumberFormat;
 
 return [

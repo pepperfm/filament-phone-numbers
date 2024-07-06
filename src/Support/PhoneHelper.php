@@ -1,6 +1,8 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Support;
+declare(strict_types=1);
+
+namespace PepperFM\FilamentPhoneNumbers\Support;
 
 use Brick\PhoneNumber\PhoneNumber;
 use Brick\PhoneNumber\PhoneNumberFormat;
@@ -17,7 +19,7 @@ class PhoneHelper
                 $phone = PhoneNumber::parse($number, $region);
                 $valid = $strict ? $phone->isValidNumber() : $phone->isPossibleNumber();
 
-                if (! $valid) {
+                if (!$valid) {
                     $phone = null;
                 }
             } catch (PhoneNumberParseException $e) {
@@ -45,16 +47,15 @@ class PhoneHelper
 
     public static function formatPhoneNumber(?string $number, bool $strict = false, int $format = PhoneNumberFormat::NATIONAL, string $region = 'US'): ?string
     {
-        if (! filled($number)) {
+        if (!filled($number)) {
             return null;
         }
 
         try {
             if ($strict) {
                 return self::normalizePhoneNumber($number, true, $format);
-            } else {
-                return PhoneNumber::parse($number, $region)->format($format);
             }
+            return PhoneNumber::parse($number, $region)->format($format);
         } catch (PhoneNumberParseException $e) {
             return null;
         }

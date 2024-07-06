@@ -1,8 +1,10 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Tests\Models;
+declare(strict_types=1);
 
-use Cheesegrits\FilamentPhoneNumbers\Tests\Database\Factories\UserFactory;
+namespace PepperFM\FilamentPhoneNumbers\Tests\Models;
+
+use PepperFM\FilamentPhoneNumbers\Tests\Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,7 +19,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
+    protected array $fillable = [
         'name',
         'email',
         'phone',
@@ -31,7 +33,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
+    protected array $hidden = [
         'password',
         'remember_token',
     ];
@@ -41,7 +43,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
+    protected array $casts = [
         'email_verified_at' => 'datetime',
     ];
 

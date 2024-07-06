@@ -1,9 +1,11 @@
 <?php
 
-namespace Cheesegrits\FilamentPhoneNumbers\Commands;
+declare(strict_types=1);
+
+namespace PepperFM\FilamentPhoneNumbers\Commands;
 
 use Brick\PhoneNumber\PhoneNumberFormat;
-use Cheesegrits\FilamentPhoneNumbers\Support\PhoneHelper;
+use PepperFM\FilamentPhoneNumbers\Support\PhoneHelper;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -25,13 +27,13 @@ class FilamentPhoneNumbersCommand extends Command
         $deleteInvalid = $this->option('delete-invalid');
         $inPlace = $this->option('in-place');
 
-        if (! $commit) {
+        if (!$commit) {
             warning('The --commit option was not given, so no actual changes will be made');
         } else {
             info('The --commit option was given, so changes WILL BE MADE to your table');
         }
 
-        if (! $deleteInvalid) {
+        if (!$deleteInvalid) {
             warning('The --delete-invalid option was not given, so invalid numbers will be left untouched');
         } else {
             info('The --delete-invalid option was given, so invalid numbers WILL BE REMOVED from your table (field must be nullable)');
@@ -48,11 +50,11 @@ class FilamentPhoneNumbersCommand extends Command
 
         try {
             /** @noinspection PhpUnusedLocalVariableInspection */
-            $model = new ('\\App\\Models\\' . $modelName)();
-            $modelName = '\\App\\Models\\' . $modelName;
+            $model = new ('\App\Models\\' . $modelName)();
+            $modelName = '\App\Models\\' . $modelName;
         } catch (\Throwable) {
             try {
-                $model = new $modelName;
+                $model = new $modelName();
             } catch (\Throwable) {
                 echo "Can't find class $modelName or \\App\\Models\\$modelName\n";
 
@@ -96,12 +98,12 @@ class FilamentPhoneNumbersCommand extends Command
         $region = $this->option('region')
             ?? text(label: 'Two letter (alpha-2) ISO country code (eg. US or GB)', placeholder: 'US', default: 'US', required: true);
 
-        $model::chunk(100, function ($records) use ($fieldName, $targetFieldName, $region, $format, $commit, $deleteInvalid) {
+        $model::chunk(100, function ($records) use ($fieldName, $targetFieldName, $region, $format, $commit, $deleteInvalid): void {
             /** @var Model $record */
             foreach ($records as $record) {
                 $phone = $record->getAttribute($fieldName);
 
-                if (! PhoneHelper::isValidPhoneNumber(number: $phone, region: $region)) {
+                if (!PhoneHelper::isValidPhoneNumber(number: $phone, region: $region)) {
                     if ($deleteInvalid) {
                         if ($targetFieldName === $fieldName) {
                             $this->warn('Invalid number, deleting: ' . $phone);
